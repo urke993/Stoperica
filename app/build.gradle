@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "creitive.com.workouttimer"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //using Retrolambda with this config
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+ext {
+    supportLibVer = "26.0.0-alpha1"
+    retrofit2Ver = "2.2.0"
+    okhttpVer = "3.6.0"
+    butterknifeVer = "8.5.1"
+    gsonVer = "2.8.0"
+    caligraphyVer = "2.2.0"
+    qrscannerVer = "1.9"
+    picassoVer = "2.5.2"
+    rxjavaVer = "2.0.1"
+    commonsVer = "2.5"
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$supportLibVer"
+    compile "com.android.support:design:$supportLibVer"
+    compile "com.android.support:support-v4:$supportLibVer"
+
+    compile "uk.co.chrisjenx:calligraphy:$caligraphyVer"
+
+    compile "com.squareup.retrofit2:retrofit:$retrofit2Ver"
+    compile "com.squareup.retrofit2:converter-gson:$retrofit2Ver"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Ver"
+    compile "com.squareup.okhttp3:okhttp:$okhttpVer"
+    compile "com.squareup.okhttp3:logging-interceptor:$okhttpVer"
+
+    compile "com.squareup.picasso:picasso:$picassoVer"
+
+    compile "io.reactivex.rxjava2:rxandroid:$rxjavaVer"
+
+    compile "commons-io:commons-io:$commonsVer"
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
+apply plugin: 'com.android.application' //or apply plugin: 'java'

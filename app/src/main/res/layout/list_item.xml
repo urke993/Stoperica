@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="rvItem"
+            type="creitive.com.workouttimer.model.Workout" />
+
+        <variable
+            name="listener"
+            type="creitive.com.workouttimer.model.OnListItemClickListener" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_padding"
+        android:layout_marginRight="@dimen/default_padding"
+        android:onClick="@{()->listener.onItemClicked(rvItem)}"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/default_padding">
+
+        <LinearLayout
+            android:alpha="0.5"
+            android:padding="@dimen/default_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_dark_1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@{rvItem.workoutName}"
+
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_medium_large"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_edit" />
+
+                    <ImageView
+                        android:onClick="@{()->listener.onDeleteClicked(rvItem)}"
+                        android:layout_marginLeft="@dimen/default_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_rubbish" />
+                </LinearLayout>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/colorWhite"
+                android:text="@{`Rounds: ` + rvItem.numberOfRounds}"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/colorWhite"
+                formatDuration="@{rvItem.roundTime}"
+                formatPreText="@{`Work time: `}"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/colorWhite"
+                formatDuration="@{rvItem.breakTime}"
+                formatPreText="@{`Break time: `}"                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/colorWhite"
+                formatDuration="@{rvItem.preparationTime}"
+                formatPreText="@{`Preparation time: `}"                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorWhite" />
+
+    </LinearLayout>
+</layout>

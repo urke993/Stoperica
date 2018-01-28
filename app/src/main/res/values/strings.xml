@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WorkoutTimer</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="pause">Pause</string>
+    <string name="new_workout">New Workout</string>
+    <string name="workouts">Workouts</string>
+    <string name="work_time">Work time</string>
+    <string name="break_time">Break time</string>
+    <string name="get_ready">Get ready</string>
+</resources>
